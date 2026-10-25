@@ -11,6 +11,8 @@
 **Live:** https://b3-demo-baan-kafae-nextjs.vercel.app  
 Astro ต้นฉบับ: https://github.com/ChinawatDc/b3-demo-baan-kafae
 
+สั่ง AI Agent ทีเดียวให้ได้แบบนี้ → คัดลอกพรอมต์ใน [`ONE_SHOT_PROMPT.md`](./ONE_SHOT_PROMPT.md)
+
 ## Stack
 
 - Next.js 16 (App Router) · React 19 · Tailwind 4
