@@ -1,26 +1,104 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cream: #fbf6ee;
+  --sand: #e9dcc6;
+  --paper: #fff8ec;
+  --green: #5e8c7e;
+  --green-ink: #3f6659;
+  --green-soft: #7fa597;
+  --caramel: #c9773e;
+  --caramel-ink: #a35a26;
+  --ink: #2b2a26;
+  --line: #06c755;
+  --ph: #d6c4a5;
+  --ph-ink: #5a4a33;
+  --rule: #cdbfa8;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cream: var(--cream);
+  --color-sand: var(--sand);
+  --color-paper: var(--paper);
+  --color-green: var(--green);
+  --color-green-ink: var(--green-ink);
+  --color-green-soft: var(--green-soft);
+  --color-caramel: var(--caramel);
+  --color-caramel-ink: var(--caramel-ink);
+  --color-ink: var(--ink);
+  --color-line: var(--line);
+  --color-ph: var(--ph);
+  --color-ph-ink: var(--ph-ink);
+  --color-rule: var(--rule);
+  --font-head: var(--font-pridi);
+  --font-en: var(--font-fraunces);
+  --font-body: var(--font-sarabun);
+  --radius-arch: 200px 200px 12px 12px;
+  --max-width-wrap: 1120px;
+  --tracking-eyebrow: 0.22em;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 3rem;
+  }
+
+  body {
+    @apply bg-cream text-ink font-body text-[17px] leading-[1.7] antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-head font-semibold;
+  }
+
+  :focus-visible {
+    outline: 3px solid #a35a26;
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    .btn {
+      transition: none;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .wrap {
+    @apply mx-auto max-w-wrap px-5 md:px-8;
+  }
+
+  .eyebrow {
+    @apply font-en text-[13px] font-medium uppercase tracking-eyebrow text-green-ink;
+  }
+
+  .h2 {
+    @apply mt-2 text-[30px] leading-tight md:text-[38px];
+  }
+
+  .btn {
+    @apply inline-flex min-h-11 cursor-pointer items-center rounded-full px-[22px] py-[11px] font-semibold no-underline transition-transform hover:-translate-y-0.5;
+  }
+
+  .btn-line {
+    @apply inline-flex min-h-11 cursor-pointer items-center rounded-full bg-line px-[22px] py-[11px] font-semibold text-ink no-underline transition-transform hover:-translate-y-0.5;
+  }
+
+  .btn-ghost {
+    @apply inline-flex min-h-11 cursor-pointer items-center rounded-full border-[1.5px] border-ink px-[22px] py-[11px] font-semibold text-ink no-underline transition-transform hover:-translate-y-0.5;
+  }
+
+  .ph {
+    @apply flex items-center justify-center rounded-[10px] bg-ph p-3 text-center text-[13px] text-ph-ink;
+  }
+
+  .rounded-arch {
+    border-radius: var(--radius-arch);
+  }
 }
